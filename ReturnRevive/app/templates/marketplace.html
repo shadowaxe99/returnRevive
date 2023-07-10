@@ -1,0 +1,26 @@
+```html
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Sustainable Fashion Marketplace</h1>
+    <div id="marketplace-items">
+        {% for item in items %}
+        <div class="item-card">
+            <img src="{{ url_for('static', filename='images/' + item.image) }}" alt="{{ item.name }}">
+            <h2>{{ item.name }}</h2>
+            <p>{{ item.description }}</p>
+            <p>Price: {{ item.price }}</p>
+            <p>Sustainability Score: {{ item.sustainability_score }}</p>
+            <button class="btn-buy" data-item-id="{{ item.id }}">Buy Now</button>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('static', filename='js/marketplace.js') }}"></script>
+{% endblock %}
+```

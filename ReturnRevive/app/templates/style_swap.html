@@ -1,0 +1,36 @@
+```html
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Style Swap</h1>
+    <p>Explore available swap options, initiate swap requests, and manage the entire swap process through our platform.</p>
+    <div id="swap-process">
+        {% for swap in swaps %}
+        <div class="swap-item">
+            <img src="{{ url_for('static', filename='images/' + swap.image) }}" alt="Swap item">
+            <h2>{{ swap.title }}</h2>
+            <p>{{ swap.description }}</p>
+            <button class="btn-swap" data-swap-id="{{ swap.id }}">Swap</button>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+<script>
+    document.querySelectorAll('.btn-swap').forEach(function(button) {
+        button.addEventListener('click', function() {
+            var swapId = this.dataset.swapId;
+            initiateSwap(swapId);
+        });
+    });
+
+    function initiateSwap(swapId) {
+        // AJAX call to initiate swap
+    }
+</script>
+{% endblock %}
+```
