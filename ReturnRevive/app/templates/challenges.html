@@ -1,0 +1,37 @@
+```html
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Fashion Challenges</h1>
+    <div id="challenge-board">
+        {% for challenge in challenges %}
+        <div class="challenge-card">
+            <h2>{{ challenge.title }}</h2>
+            <p>{{ challenge.description }}</p>
+            <div class="challenge-images">
+                {% for image in challenge.images %}
+                <img src="{{ url_for('static', filename='images/' + image) }}" alt="Challenge image">
+                {% endfor %}
+            </div>
+            <div class="challenge-votes">
+                <p>Votes: {{ challenge.votes }}</p>
+                <a href="{{ url_for('main.vote', challenge_id=challenge.id) }}" class="btn btn-primary">Vote</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="challenge-upload">
+        <h2>Upload your creation</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.image.label }}<br>
+                {{ form.image(size=32) }}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
+</div>
+{% endblock %}
+```

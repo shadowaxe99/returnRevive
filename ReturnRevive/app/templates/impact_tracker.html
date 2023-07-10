@@ -1,0 +1,43 @@
+```html
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">Impact Tracker</h1>
+    <div id="impact-tracker">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Carbon Emissions Saved</h5>
+                        <p class="card-text">{{ impact.carbon_saved }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Landfill Waste Reduced</h5>
+                        <p class="card-text">{{ impact.waste_reduced }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Sustainable Fashion Swaps Made</h5>
+                        <p class="card-text">{{ impact.swaps_made }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">Personalized Insights and Recommendations</h2>
+                <p>{{ impact.insights }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+```

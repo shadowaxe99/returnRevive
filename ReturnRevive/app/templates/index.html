@@ -1,0 +1,39 @@
+```html
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1>Welcome to ReturnRevive!</h1>
+        <p>Revolutionizing the returns process for sustainable fashion brands.</p>
+        <a class="btn btn-primary btn-lg" href="{{ url_for('returns') }}" role="button">Start Your Returns Journey</a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Style Swap</h2>
+            <p>Consider swapping fashion items instead of initiating a return. Explore available swap options and manage the entire swap process through our platform.</p>
+            <p><a class="btn btn-secondary" href="{{ url_for('style_swap') }}" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Sustainable Fashion Marketplace</h2>
+            <p>Sell your gently used returned fashion items in our dedicated marketplace. Browse and buy listed items, generating additional revenue for both you and the sustainable fashion brand.</p>
+            <p><a class="btn btn-secondary" href="{{ url_for('marketplace') }}" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Fashion Challenges</h2>
+            <p>Participate in regular fashion challenges and showcase your sustainable styling skills. Vote on your favorite outfits and win exclusive rewards.</p>
+            <p><a class="btn btn-secondary" href="{{ url_for('challenges') }}" role="button">View details &raquo;</a></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Impact Tracker</h2>
+            <p>Track the environmental impact achieved through your participation in ReturnRevive. Get personalized insights and recommendations to further reduce your environmental footprint.</p>
+            <p><a class="btn btn-secondary" href="{{ url_for('impact_tracker') }}" role="button">View details &raquo;</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+```
